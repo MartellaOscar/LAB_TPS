@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anagrafica 5DINF</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #333333;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+
+
+        tr:nth-child(even) {
+            background-color: #e9fbe9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        button,
+        input[type="button"] {
+            background-color: #6c9f79;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            margin: 8px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center;">Anagrafica Classe 5DINF</h2>
+    <div id="t1"></div>
+
+    <input id="b1" type="button" onclick="Tabella()" value="STAMPA TUTTA LA TABELLA">
+    <input id="b2" type="button" onclick="Maggiorenni()" value="STAMPA SOLO MAGGIORENNI">
+    <br><br>
+    <input type="text" id="lettera" maxlength="1" placeholder="Inserisci lettera del cognome...">
+    <input id="b3" type="button" onclick="RicercaLettera()" value="RICERCA COGNOME ">
+
+    <input type="text" id="generazione" maxlength="4" placeholder="Inserisci anno da cercare...">
+    <input id="b4" type="button" onclick="RicercaGenerazione()" value="RICERCA GENERAZIONE DALL'ANNO">
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
