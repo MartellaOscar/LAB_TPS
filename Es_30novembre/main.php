@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php foreach ($persone as $p): ?>
         <tr>
-            <td><?= htmlspecialchars($p['nome']) ?></td>
-            <td><?= htmlspecialchars($p['cognome']) ?></td>
-            <td><?= htmlspecialchars($p['eta']) ?></td>
+            <td><?=  ($p['nome']) ?></td>
+            <td><?=  ($p['cognome']) ?></td>
+            <td><?=  ($p['eta']) ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
