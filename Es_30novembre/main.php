@@ -1,6 +1,6 @@
 <?php
 
-$file = "persone.json";
+$file = "dati.json";
 $json_data = file_get_contents($file);
 
 $persone = json_decode($json_data, true);
