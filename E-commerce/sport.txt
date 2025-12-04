@@ -1,0 +1,18 @@
+nome: Pallone da Calcio Kipsta
+prezzo: €14.99
+descrizione: Pallone da calcio in materiale sintetico, ideale per allenamenti e partite ricreative. Dotato di buona aderenza e durabilità.
+nome: Racchetta da Tennis Artengo
+prezzo: €49.99
+descrizione: Racchetta in alluminio leggero con grip confortevole. Perfetta per principianti e giocatori intermedi.
+nome: Zaino da Trekking Quechua 30L
+prezzo: €39.99
+descrizione: Zaino ergonomico con spallacci imbottiti, ideale per escursioni di un giorno. Resistente all'acqua e con tasche organizzate.
+nome: Scarpe Running Kalenji
+prezzo: €59.99
+descrizione: Scarpe da corsa leggere con ammortizzazione EVA. Suola aderente per un'ottima trazione su asfalto.
+nome: Yoga Mat Domyos 173cm
+prezzo: €19.99
+descrizione: Tappetino antiscivolo per yoga e pilates. Spessore 5mm con superficie morbida e comoda.
+nome: Borraccia Termica Quechua 500ml
+prezzo: €24.99
+descrizione: Bottiglia isolante che mantiene bevande calde/fredde fino a 12 ore. In acciaio inox con tappo ermetico.

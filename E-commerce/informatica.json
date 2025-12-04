@@ -1,0 +1,42 @@
+[
+    {
+        "nome": "Laptop Dell XPS 13",
+        "costo": 1299.99,
+        "descrizione": "Ultrabook professionale con processore Intel, 16GB RAM e display FHD"
+    },
+    {
+        "nome": "Monitor LG 27 pollici",
+        "costo": 299.99,
+        "descrizione": "Monitor IPS 4K con colori vividi, ideale per lavoro e gaming"
+    },
+    {
+        "nome": "Mouse Logitech MX Master 3",
+        "costo": 99.99,
+        "descrizione": "Mouse wireless ergonomico con precisione elevata"
+    },
+    {
+        "nome": "Tastiera Meccanica RGB",
+        "costo": 149.99,
+        "descrizione": "Tastiera gaming con switch meccanici e illuminazione RGB personalizzabile"
+    },
+    {
+        "nome": "SSD Samsung 1TB",
+        "costo": 79.99,
+        "descrizione": "Unità SSD NVMe ad alta velocità per storage rapido"
+    },
+    {
+        "nome": "Headset Corsair Virtuoso",
+        "costo": 179.99,
+        "descrizione": "Cuffie wireless da gaming con audio surround 7.1"
+    },
+    {
+        "nome": "Webcam Logitech 4K",
+        "costo": 129.99,
+        "descrizione": "Webcam professionale con risoluzione 4K per videoconferenze"
+    },
+    {
+        "nome": "Hub USB-C 7 porte",
+        "costo": 49.99,
+        "descrizione": "Adattatore multiporta con supporto per charging e trasferimento dati"
+    }
+]

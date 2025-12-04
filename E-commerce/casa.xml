@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<casa>
+    <prodotti>
+        <prodotto>
+            <nome>Divano in Tessuto</nome>
+            <costo>599.99</costo>
+            <descrizione>Divano confortevole a 3 posti in tessuto grigio scuro, ideale per il salotto.</descrizione>
+        </prodotto>
+        <prodotto>
+            <nome>Tavolo da Pranzo</nome>
+            <costo>349.99</costo>
+            <descrizione>Tavolo in legno massello con 6 posti, perfetto per cene in famiglia.</descrizione>
+        </prodotto>
+        <prodotto>
+            <nome>Lampadario Moderno</nome>
+            <costo>89.99</costo>
+            <descrizione>Lampadario a LED design minimalista, consuma poco e illumina efficacemente.</descrizione>
+        </prodotto>
+        <prodotto>
+            <nome>Tappeto Persiano</nome>
+            <costo>199.99</costo>
+            <descrizione>Tappeto tradizionale in lana, motivi geometrici, dimensioni 200x300 cm.</descrizione>
+        </prodotto>
+        <prodotto>
+            <nome>Specchio da Parete</nome>
+            <costo>79.99</costo>
+            <descrizione>Specchio decorativo con cornice in legno naturale, 100x80 cm.</descrizione>
+        </prodotto>
+        <prodotto>
+            <nome>Libreria in Legno</nome>
+            <costo>249.99</costo>
+            <descrizione>Libreria a 5 ripiani in legno MDF, ottima per organizzare libri e decorazioni.</descrizione>
+        </prodotto>
+    </prodotti>
+</casa>
