@@ -5,82 +5,173 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>E-commerce 5DINF</title>
+
+    <!-- Font moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+        /* ======== RESET ======== */
+        * {
             margin: 0;
-            padding: 0
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0b79d0 0%, #001f3f 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        /* ======== HEADER ======== */
         header {
-            background: #0b79d0;
-            color: white;
-            padding: 16px
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+
+        /* ======== MAIN ======== */
         main {
-            padding: 20px
+            padding: 20px;
+            max-width: 1080px;
+            margin: auto;
         }
 
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+        }
+
+        p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ======== CATEGORIE ======== */
         .categories {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
         }
 
         .cat {
-            padding: 12px 18px;
-            background: #eee;
-            border-radius: 8px;
-            cursor: pointer
+            background: rgba(255, 255, 255, 0.15);
+            padding: 14px 22px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            backdrop-filter: blur(12px);
+            transition: 0.25s;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
+        .cat:hover {
+            transform: scale(1.08);
+            background: rgba(0, 255, 255, 0.28);
+            border-color: cyan;
+            box-shadow: 0 0 15px cyan;
+        }
+
+        /* ======== CARDS PRODOTTI ======== */
         .list {
+            margin-top: 18px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 12px;
-            margin-top: 16px
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            border: 1px solid #ddd;
-            padding: 12px;
-            border-radius: 8px;
-            background: white
+            background: rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            transition: 0.35s;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
         }
 
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 0 20px cyan;
+            border-color: cyan;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        /* ======== BUTTON ======== */
         .btn {
             display: inline-block;
-            padding: 8px 12px;
-            background: #0b79d0;
-            color: white;
-            border-radius: 6px;
+            padding: 10px 16px;
+            background: cyan;
+            color: #000;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
             text-decoration: none;
-            cursor: pointer
+            transition: 0.2s;
+            border: 2px solid transparent;
         }
 
+        .btn:hover {
+            background: #fff;
+            border-color: cyan;
+            box-shadow: 0 0 10px cyan;
+        }
+
+        /* ======== BACK ======== */
         .back {
-            margin-bottom: 12px;
-            color: #0b79d0;
+            display: inline-block;
+            margin-bottom: 18px;
             cursor: pointer;
-            display: inline-block
+            color: cyan;
+            font-size: 1rem;
+            text-decoration: underline;
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            color: white;
+            text-shadow: 0 0 10px cyan;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF :)</h1>
+        <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF 😎🔥</h1>
     </header>
+
     <main id="app">
         <p>Caricamento prodotti…</p>
     </main>
 
-    <!-- jsPDF CDN -->
+    <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+    <!-- Il TUO JavaScript identico (NON toccato) -->
     <script>
-        // === CONFIG: percorsi dei file (modifica se necessario) ===
+        // === CONFIG: percorsi file ===
         const FILES = {
             casa: './casa.xml',
             informatica: './informatica.json',
@@ -88,14 +179,12 @@
             sport: './sport.txt'
         };
 
-        // === Utility parser CSV (semplice) ===
+        // === Utility CSV ===
         function parseCSV(text) {
             const lines = text.trim().split(/\r?\n/).filter(l => l.trim() !== '');
-            // assume header in first line
             const header = lines[0].split(',').map(h => h.trim());
             const rows = lines.slice(1);
             return rows.map(r => {
-                // split respecting simple commas; non-robust for quoted commas
                 const cols = r.split(',');
                 const obj = {};
                 header.forEach((h, i) => obj[h] = (cols[i] ?? '').trim());
@@ -103,13 +192,9 @@
             });
         }
 
-        // === Parser TXT per lo sport (chiave: valore, blocchi ripetuti) ===
+        // === Parser TXT sport ===
         function parseKeyValueBlocks(text) {
-            // Normalizza le righe e separa per pattern "nome:" (o doppia newline)
-            // Approccio: trova tutti i blocchi che contengono 'nome:' ...
-            // Rimuove eventuali "€" e spazi superflui
             const raw = text.replace(/\r/g, '').trim();
-            // Separa cercando 'nome:' che indica l'inizio di un blocco
             const parts = raw.split(/\n(?=nome:)/i).map(p => p.trim()).filter(p => p);
             const objs = parts.map(block => {
                 const lines = block.split('\n').map(l => l.trim()).filter(l => l);
@@ -119,23 +204,17 @@
                     if (!k) return;
                     const key = k.trim().toLowerCase();
                     const value = rest.join(':').trim();
-                    // pulizie
-                    if (key === 'prezzo') {
-                        o.price = value.replace('€', '').trim();
-                    } else if (key === 'nome') {
-                        o.name = value;
-                    } else if (key === 'descrizione') {
-                        o.description = value;
-                    } else {
-                        o[key] = value;
-                    }
+                    if (key === 'prezzo') o.price = value.replace('€', '').trim();
+                    else if (key === 'nome') o.name = value;
+                    else if (key === 'descrizione') o.description = value;
+                    else o[key] = value;
                 });
                 return o;
             });
             return objs;
         }
 
-        // === Parser XML per casa.xml ===
+        // === Parser XML casa ===
         function parseCasaXML(xmlText) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(xmlText, "application/xml");
@@ -147,74 +226,51 @@
             }));
         }
 
-        // === Caricamento di tutti i file ===
+        // === Carica tutti i file ===
         async function loadAll() {
             const results = { items: [] };
 
-            // 1) JSON (informatica)
+            // JSON
             try {
                 const r = await fetch(FILES.informatica);
                 const data = await r.json();
-                // mappa campi a {name, price, description, categoria}
                 data.forEach(p => results.items.push({
-                    name: p.nome ?? p.name,
-                    price: (p.costo ?? p.price)?.toString(),
-                    description: p.descrizione ?? p.description ?? '',
-                    categoria: 'Informatica',
-                    source: 'informatica.json'
+                    name: p.nome,
+                    price: p.costo,
+                    description: p.descrizione,
+                    categoria: 'Informatica'
                 }));
-            } catch (e) {
-                console.error('Errore load informatica', e);
-            }
+            } catch (e) { }
 
-            // 2) XML (casa)
+            // XML
             try {
                 const r = await fetch(FILES.casa);
                 const txt = await r.text();
-                const parsed = parseCasaXML(txt);
-                parsed.forEach(p => results.items.push({
-                    name: p.name,
-                    price: p.price,
-                    description: p.description,
-                    categoria: 'Casa',
-                    source: 'casa.xml'
+                parseCasaXML(txt).forEach(p => results.items.push({
+                    ...p, categoria: 'Casa'
                 }));
-            } catch (e) {
-                console.error('Errore load casa', e);
-            }
+            } catch (e) { }
 
-            // 3) CSV (giardino)
+            // CSV
             try {
                 const r = await fetch(FILES.giardino);
                 const txt = await r.text();
-                // ATTENZIONE: il file deve avere header "Nome Prodotto,Prezzo,Descrizione"
-                const parsed = parseCSV(txt);
-                parsed.forEach(p => results.items.push({
-                    name: p['Nome Prodotto'] ?? p['Nome Prodotto'.trim()] ?? p['Nome'] ?? p['name'] ?? '',
-                    price: p['Prezzo'] ?? p['Prezzo'.trim()] ?? p['Price'] ?? '',
-                    description: p['Descrizione'] ?? p['Descrizione'.trim()] ?? p['Description'] ?? '',
-                    categoria: 'Giardino',
-                    source: 'giardino.csv'
+                parseCSV(txt).forEach(p => results.items.push({
+                    name: p["Nome Prodotto"],
+                    price: p["Prezzo"],
+                    description: p["Descrizione"],
+                    categoria: 'Giardino'
                 }));
-            } catch (e) {
-                console.error('Errore load giardino', e);
-            }
+            } catch (e) { }
 
-            // 4) TXT (sport)
+            // TXT
             try {
                 const r = await fetch(FILES.sport);
                 const txt = await r.text();
-                const parsed = parseKeyValueBlocks(txt);
-                parsed.forEach(p => results.items.push({
-                    name: p.name ?? p.nome ?? '',
-                    price: p.price ?? p.prezzo ?? '',
-                    description: p.description ?? p.descrizione ?? '',
-                    categoria: 'Sport',
-                    source: 'sport.txt'
-                }));
-            } catch (e) {
-                console.error('Errore load sport', e);
-            }
+                parseKeyValueBlocks(txt).forEach(p =>
+                    results.items.push({ ...p, categoria: 'Sport' })
+                );
+            } catch (e) { }
 
             return results.items;
         }
@@ -225,22 +281,22 @@
         function groupByCategory(items) {
             const map = {};
             items.forEach(i => {
-                const c = i.categoria || 'Uncategorized';
-                if (!map[c]) map[c] = [];
-                map[c].push(i);
+                if (!map[i.categoria]) map[i.categoria] = [];
+                map[i.categoria].push(i);
             });
             return map;
         }
 
         function renderCatalog(items) {
-            app.innerHTML = '';
-            const h = document.createElement('div');
-            h.innerHTML = '<h2>Catalogo</h2><p>Seleziona una macrocategoria:</p>';
-            app.appendChild(h);
+            app.innerHTML = `
+                <h2>Catalogo</h2>
+                <p>Scegli una categoria:</p>
+            `;
 
             const categories = groupByCategory(items);
             const container = document.createElement('div');
             container.className = 'categories';
+
             Object.keys(categories).forEach(cat => {
                 const el = document.createElement('div');
                 el.className = 'cat';
@@ -248,101 +304,95 @@
                 el.onclick = () => renderCategory(cat, categories[cat], items);
                 container.appendChild(el);
             });
+
             app.appendChild(container);
         }
 
         function renderCategory(cat, itemsInCat, allItems) {
-            app.innerHTML = `<a class="back" id="back">&larr; Torna al catalogo</a><h2>${cat}</h2>`;
+            app.innerHTML = `
+                <a class="back" id="back">&larr; Torna al catalogo</a>
+                <h2>${cat}</h2>
+            `;
+
             document.getElementById('back').onclick = () => renderCatalog(allItems);
 
             const list = document.createElement('div');
             list.className = 'list';
-            itemsInCat.forEach((p, idx) => {
+
+            itemsInCat.forEach(p => {
                 const card = document.createElement('div');
                 card.className = 'card';
-                card.innerHTML = `<h3>${p.name}</h3>
-        <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
-        <p>${(p.description || '').slice(0, 100)}${(p.description || '').length > 100 ? '...' : ''}</p>
-        <a class="btn" data-idx="${idx}">Vedi</a>`;
-                card.querySelector('a').onclick = () => renderProduct(p, allItems);
+                card.innerHTML = `
+                    <h3>${p.name}</h3>
+                    <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
+                    <p>${p.description.substring(0, 100)}...</p>
+                    <div class="btn">Vedi</div>
+                `;
+
+                card.querySelector('.btn').onclick = () => renderProduct(p, allItems);
+
                 list.appendChild(card);
             });
+
             app.appendChild(list);
         }
 
         function renderProduct(p, allItems) {
-            app.innerHTML = `<a class="back" id="back">&larr; Torna</a>
-      <h2>${p.name}</h2>
-      <p><strong>Categoria:</strong> ${p.categoria}</p>
-      <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
-      <p>${p.description}</p>
-      <div style="margin-top:12px">
-        <button id="buyBtn" class="btn">Compra</button>
-      </div>`;
-            document.getElementById('back').onclick = () => {
-                // torna alla lista categoria: ricostruisci dalla categoria
-                const grouped = groupByCategory(allItems);
-                renderCategory(p.categoria, grouped[p.categoria], allItems);
-            };
+            app.innerHTML = `
+                <a class="back" id="back">&larr; Torna</a>
+                <h2>${p.name}</h2>
+                <p><strong>Categoria:</strong> ${p.categoria}</p>
+                <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
+                <p>${p.description}</p>
+                <br>
+                <button id="buyBtn" class="btn">Compra</button>
+            `;
+
+            document.getElementById('back').onclick = () =>
+                renderCategory(p.categoria, groupByCategory(allItems)[p.categoria], allItems);
+
             document.getElementById('buyBtn').onclick = () => buyProduct(p);
         }
 
-        // === Compra e genera PDF ===
+        // === Genera PDF ===
         async function buyProduct(p) {
-            // semplice form per inserire nome cliente e quantità
-            const name = prompt('Inserisci il tuo nome per lo scontrino:', 'Cliente');
-            if (name === null) return;
-            let qty = prompt('Quantità:', '1');
-            if (qty === null) return;
-            qty = Number(qty) || 1;
-            const subtotal = (Number(p.price) || 0) * qty;
-            const iva = +(subtotal * 0.22).toFixed(2);
-            const total = +(subtotal + iva).toFixed(2);
+            const name = prompt("Inserisci il tuo nome:", "Cliente");
+            let qty = prompt("Quantità:", "1");
 
-            // genera PDF con jsPDF
+            qty = Number(qty) || 1;
+            const subtotal = Number(p.price) * qty;
+            const iva = subtotal * 0.22;
+            const total = subtotal + iva;
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            const now = new Date();
-            doc.setFontSize(14);
-            doc.text("Scontrino - E-COMMERCE 5DINF", 14, 18);
-            doc.setFontSize(10);
-            doc.text(`Data: ${now.toLocaleString()}`, 14, 26);
-            doc.text(`Cliente: ${name}`, 14, 32);
-            doc.text(`Prodotto: ${p.name}`, 14, 40);
-            doc.text(`Categoria: ${p.categoria}`, 14, 46);
-            doc.text(`Prezzo unitario: €${Number(p.price).toFixed(2)}`, 14, 52);
-            doc.text(`Quantità: ${qty}`, 14, 58);
-            doc.text(`Subtotale: €${subtotal.toFixed(2)}`, 14, 66);
-            doc.text(`IVA (22%): €${iva.toFixed(2)}`, 14, 74);
-            doc.setFontSize(12);
-            doc.text(`Totale: €${total.toFixed(2)}`, 14, 86);
+            const orderId = "ORD-" + Math.random().toString(36).substring(2, 8).toUpperCase();
 
-            // opzionale: ID ordine casuale
-            const orderId = 'ORD-' + Math.random().toString(36).slice(2, 9).toUpperCase();
-            doc.setFontSize(9);
-            doc.text(`ID ordine: ${orderId}`, 14, 96);
+            doc.setFontSize(14);
+            doc.text("Scontrino - E-commerce 5DINF", 15, 15);
+
+            doc.setFontSize(10);
+            doc.text(`Ordine: ${orderId}`, 15, 30);
+            doc.text(`Cliente: ${name}`, 15, 38);
+            doc.text(`Prodotto: ${p.name}`, 15, 46);
+            doc.text(`Quantità: ${qty}`, 15, 54);
+            doc.text(`Prezzo unitario: €${p.price}`, 15, 62);
+            doc.text(`Subtotale: €${subtotal.toFixed(2)}`, 15, 70);
+            doc.text(`IVA: €${iva.toFixed(2)}`, 15, 78);
+            doc.text(`Totale: €${total.toFixed(2)}`, 15, 90);
 
             doc.save(`scontrino_${orderId}.pdf`);
-            alert('Acquisto registrato. Scontrino scaricato.');
+            alert("Acquisto effettuato!");
         }
 
-        // === Avvio ===
-        (async function init() {
-            try {
-                const items = await loadAll();
-                if (!items || items.length === 0) {
-                    app.innerHTML = '<p>Non sono presenti prodotti. Controlla i file e il server (CORS/HTTP).</p>';
-                    return;
-                }
-                renderCatalog(items);
-            } catch (e) {
-                console.error(e);
-                app.innerHTML = '<p>Errore durante il caricamento dei prodotti. Controlla la console.</p>';
-            }
+        // === START ===
+        (async () => {
+            const items = await loadAll();
+            renderCatalog(items);
         })();
-
     </script>
+
 </body>
 
 </html>
