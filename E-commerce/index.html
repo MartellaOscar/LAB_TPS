@@ -1,16 +1,134 @@
 <!DOCTYPE html>
-<html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Catalogo Prodotti</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>E-commerce 5DINF</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+        color: #1e293b;
+    }
+
+    /* GRID RESPONSIVE */
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 10px;
+    }
+
+    /* CARD DESIGN */
+    .card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+        color: #0f172a;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #16a34a;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #334155;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+    /* BOTTONE */
+    .card button {
+        margin-top: 15px;
+        padding: 10px 15px;
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .card button:hover {
+        background: #2563eb;
+    }
+</style>
+
 <body>
+    <header>
+        <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF 😎🔥</h1>
+    </header>
 
-    <h1>Catalogo Prodotti</h1>
+    <div id="t1"></div>
 
-    <div class="cards-container" id="catalogo"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <script src="script.js"></script>
+    <script>
+
+        function caricaJSON() {
+            let richiesta = new XMLHttpRequest();
+
+            richiesta.open('GET', 'informatica.json', true);
+            richiesta.send();
+
+            richiesta.onload = function () {
+
+                const oggetto = JSON.parse(richiesta.responseText);
+
+                let str = "<table border='1'>";
+
+                for (let i = 0; i < oggetto.length; i++) {
+                    str +=
+                        "<tr>" +
+                        "<td>" + oggetto[i].nome + "</td>" +
+                        "<td>" + oggetto[i].costo + "</td>" +
+                        "<td>" + oggetto[i].descrizione + "</td>" +
+                        "</tr>";
+                }
+
+                str += "</table>";
+
+                document.getElementById("t1").innerHTML = str;
+            };
+        }
+
+        // Chiamata
+        caricaJSON();
+
+    </script>
+
 </body>
+
 </html>
