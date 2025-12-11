@@ -10,41 +10,42 @@
     <header>
         <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF 😎🔥</h1>
     </header>
-        <div id="t1"></div>
 
+    <div id="t1"></div>
 
-    <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <!-- Il TUO JavaScript identico (NON toccato) -->
     <script>
-        //JSON
-        function JSON() {
-            let json = new XMLHttpRequest();
 
-            json.open('GET', 'informatica.json', true);
-            json.send();
-            json.onload = function () {
-                const oggetto = JSON.parse(json.responseText);
+        function caricaJSON() {
+            let richiesta = new XMLHttpRequest();
 
-                let str = "<table>";
+            richiesta.open('GET', 'informatica.json', true);
+            richiesta.send();
+
+            richiesta.onload = function () {
+
+                const oggetto = JSON.parse(richiesta.responseText);
+
+                let str = "<table border='1'>";
 
                 for (let i = 0; i < oggetto.length; i++) {
-
-                    str = str + "<tr><td>" + oggetto[i].nome + "</td><td>" + oggetto[i].costo + "</td><td>" + oggetto[i].descrizione + " </td></tr>";
-
+                    str +=
+                        "<tr>" +
+                        "<td>" + oggetto[i].nome + "</td>" +
+                        "<td>" + oggetto[i].costo + "</td>" +
+                        "<td>" + oggetto[i].descrizione + "</td>" +
+                        "</tr>";
                 }
 
-                str = str + "</table>";
-                document.getElementById("t1").innerHTML= str;
+                str += "</table>";
 
-            }
+                document.getElementById("t1").innerHTML = str;
+            };
         }
 
-
-
-
-
+        // Chiamata
+        caricaJSON();
 
     </script>
 
