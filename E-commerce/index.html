@@ -5,174 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>E-commerce 5DINF</title>
-
-    <!-- Font premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* ======== RESET ======== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* ======== BODY ======== */
-        body {
-            font-family: "Poppins", sans-serif;
-            background: radial-gradient(circle at 20% 20%, #00aaff 0%, #00172b 60%, #000a18 100%);
-            color: #e6faff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ======== HEADER ======== */
-        header {
-            width: 100%;
-            padding: 30px 10px;
-            text-align: center;
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 99;
-        }
-
-        header h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #b8efff;
-            letter-spacing: 2px;
-            text-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px cyan; }
-            to { text-shadow: 0 0 25px #00eaff; }
-        }
-
-        /* ======== MAIN ======== */
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-            color: #ccf5ff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-        }
-
-        p {
-            opacity: 0.9;
-        }
-
-        /* ======== CATEGORIES ======== */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .cat {
-            padding: 18px 22px;
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 18px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            backdrop-filter: blur(12px);
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.35s ease-in-out;
-            box-shadow: 0 0 20px rgba(0, 200, 255, 0.12);
-        }
-
-        .cat:hover {
-            transform: translateY(-6px) scale(1.05);
-            background: rgba(0, 255, 255, 0.22);
-            box-shadow: 0 0 25px cyan;
-            color: #00333d;
-        }
-
-        /* ======== PRODUCT CARDS ======== */
-        .list {
-            margin-top: 25px;
-            display: grid;
-            gap: 25px;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        }
-
-        .card {
-            padding: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            backdrop-filter: blur(18px);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
-            transition: 0.35s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.04);
-            box-shadow: 0 0 35px cyan;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #bdf9ff;
-        }
-
-        /* ======== BUTTONS ======== */
-        .btn {
-            display: inline-block;
-            margin-top: 6px;
-            padding: 12px 18px;
-            background: linear-gradient(135deg, cyan, #00e6ff);
-            color: #00333d;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.25s;
-            border: 2px solid transparent;
-        }
-
-        .btn:hover {
-            background: white;
-            border-color: cyan;
-            box-shadow: 0 0 15px cyan;
-        }
-
-        /* ======== BACK BUTTON ======== */
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            color: cyan;
-            cursor: pointer;
-            text-decoration: underline;
-            transition: 0.25s ease;
-        }
-
-        .back:hover {
-            color: white;
-            text-shadow: 0 0 10px cyan;
-        }
-    </style>
 </head>
 
 <body>
 
     <header>
-        <h1>E-Commerce Futuristico 5DINF ✨🚀</h1>
+        <h1>E-Commerce 5DINF ✨🚀</h1>
     </header>
 
     <main id="app">
@@ -182,10 +20,9 @@
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <!-- Il tuo JavaScript NON modificato -->
-    <!-- (Lo lascio fuori per evitare messaggi troppo lunghi, puoi incollare il tuo JS qui identico!) -->
 
 </body>
+
 </html>
 
 
@@ -203,226 +40,33 @@
 
     <!-- Il TUO JavaScript identico (NON toccato) -->
     <script>
-        // === CONFIG: percorsi file ===
-        const FILES = {
-            casa: './casa.xml',
-            informatica: './informatica.json',
-            giardino: './giardino.csv',
-            sport: './sport.txt'
-        };
+        //JSON
+        function JSON() {
+            let json = new XMLHttpRequest();
 
-        // === Utility CSV ===
-        function parseCSV(text) {
-            const lines = text.trim().split(/\r?\n/).filter(l => l.trim() !== '');
-            const header = lines[0].split(',').map(h => h.trim());
-            const rows = lines.slice(1);
-            return rows.map(r => {
-                const cols = r.split(',');
-                const obj = {};
-                header.forEach((h, i) => obj[h] = (cols[i] ?? '').trim());
-                return obj;
-            });
+            json.open('GET', 'informatica.json', true);
+            json.send();
+            json.onload = function () {
+                const oggetto = JSON.parse(json.responseText);
+
+                let str = "<table>";
+
+                for (let i = 0; i < oggetto.length; i++) {
+
+                    str = str + "<tr><td>" + oggetto[i].nome + "</td><td>" + oggetto[i].costo + "</td><td>" + oggetto[i].descrizione + " </td></tr>";
+
+                }
+
+                str = str + "</table>";
+
+            }
         }
 
-        // === Parser TXT sport ===
-        function parseKeyValueBlocks(text) {
-            const raw = text.replace(/\r/g, '').trim();
-            const parts = raw.split(/\n(?=nome:)/i).map(p => p.trim()).filter(p => p);
-            const objs = parts.map(block => {
-                const lines = block.split('\n').map(l => l.trim()).filter(l => l);
-                const o = {};
-                lines.forEach(line => {
-                    const [k, ...rest] = line.split(':');
-                    if (!k) return;
-                    const key = k.trim().toLowerCase();
-                    const value = rest.join(':').trim();
-                    if (key === 'prezzo') o.price = value.replace('€', '').trim();
-                    else if (key === 'nome') o.name = value;
-                    else if (key === 'descrizione') o.description = value;
-                    else o[key] = value;
-                });
-                return o;
-            });
-            return objs;
-        }
 
-        // === Parser XML casa ===
-        function parseCasaXML(xmlText) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(xmlText, "application/xml");
-            const prodotti = Array.from(doc.querySelectorAll('prodotto'));
-            return prodotti.map(p => ({
-                name: p.querySelector('nome')?.textContent ?? '',
-                price: p.querySelector('costo')?.textContent ?? '',
-                description: p.querySelector('descrizione')?.textContent ?? ''
-            }));
-        }
 
-        // === Carica tutti i file ===
-        async function loadAll() {
-            const results = { items: [] };
 
-            // JSON
-            try {
-                const r = await fetch(FILES.informatica);
-                const data = await r.json();
-                data.forEach(p => results.items.push({
-                    name: p.nome,
-                    price: p.costo,
-                    description: p.descrizione,
-                    categoria: 'Informatica'
-                }));
-            } catch (e) { }
 
-            // XML
-            try {
-                const r = await fetch(FILES.casa);
-                const txt = await r.text();
-                parseCasaXML(txt).forEach(p => results.items.push({
-                    ...p, categoria: 'Casa'
-                }));
-            } catch (e) { }
 
-            // CSV
-            try {
-                const r = await fetch(FILES.giardino);
-                const txt = await r.text();
-                parseCSV(txt).forEach(p => results.items.push({
-                    name: p["Nome Prodotto"],
-                    price: p["Prezzo"],
-                    description: p["Descrizione"],
-                    categoria: 'Giardino'
-                }));
-            } catch (e) { }
-
-            // TXT
-            try {
-                const r = await fetch(FILES.sport);
-                const txt = await r.text();
-                parseKeyValueBlocks(txt).forEach(p =>
-                    results.items.push({ ...p, categoria: 'Sport' })
-                );
-            } catch (e) { }
-
-            return results.items;
-        }
-
-        // === Render UI ===
-        const app = document.getElementById('app');
-
-        function groupByCategory(items) {
-            const map = {};
-            items.forEach(i => {
-                if (!map[i.categoria]) map[i.categoria] = [];
-                map[i.categoria].push(i);
-            });
-            return map;
-        }
-
-        function renderCatalog(items) {
-            app.innerHTML = `
-                <h2>Catalogo</h2>
-                <p>Scegli una categoria:</p>
-            `;
-
-            const categories = groupByCategory(items);
-            const container = document.createElement('div');
-            container.className = 'categories';
-
-            Object.keys(categories).forEach(cat => {
-                const el = document.createElement('div');
-                el.className = 'cat';
-                el.textContent = `${cat} (${categories[cat].length})`;
-                el.onclick = () => renderCategory(cat, categories[cat], items);
-                container.appendChild(el);
-            });
-
-            app.appendChild(container);
-        }
-
-        function renderCategory(cat, itemsInCat, allItems) {
-            app.innerHTML = `
-                <a class="back" id="back">&larr; Torna al catalogo</a>
-                <h2>${cat}</h2>
-            `;
-
-            document.getElementById('back').onclick = () => renderCatalog(allItems);
-
-            const list = document.createElement('div');
-            list.className = 'list';
-
-            itemsInCat.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <h3>${p.name}</h3>
-                    <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
-                    <p>${p.description.substring(0, 100)}...</p>
-                    <div class="btn">Vedi</div>
-                `;
-
-                card.querySelector('.btn').onclick = () => renderProduct(p, allItems);
-
-                list.appendChild(card);
-            });
-
-            app.appendChild(list);
-        }
-
-        function renderProduct(p, allItems) {
-            app.innerHTML = `
-                <a class="back" id="back">&larr; Torna</a>
-                <h2>${p.name}</h2>
-                <p><strong>Categoria:</strong> ${p.categoria}</p>
-                <p><strong>Prezzo:</strong> €${Number(p.price).toFixed(2)}</p>
-                <p>${p.description}</p>
-                <br>
-                <button id="buyBtn" class="btn">Compra</button>
-            `;
-
-            document.getElementById('back').onclick = () =>
-                renderCategory(p.categoria, groupByCategory(allItems)[p.categoria], allItems);
-
-            document.getElementById('buyBtn').onclick = () => buyProduct(p);
-        }
-
-        // === Genera PDF ===
-        async function buyProduct(p) {
-            const name = prompt("Inserisci il tuo nome:", "Cliente");
-            let qty = prompt("Quantità:", "1");
-
-            qty = Number(qty) || 1;
-            const subtotal = Number(p.price) * qty;
-            const iva = subtotal * 0.22;
-            const total = subtotal + iva;
-
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const orderId = "ORD-" + Math.random().toString(36).substring(2, 8).toUpperCase();
-
-            doc.setFontSize(14);
-            doc.text("Scontrino - E-commerce 5DINF", 15, 15);
-
-            doc.setFontSize(10);
-            doc.text(`Ordine: ${orderId}`, 15, 30);
-            doc.text(`Cliente: ${name}`, 15, 38);
-            doc.text(`Prodotto: ${p.name}`, 15, 46);
-            doc.text(`Quantità: ${qty}`, 15, 54);
-            doc.text(`Prezzo unitario: €${p.price}`, 15, 62);
-            doc.text(`Subtotale: €${subtotal.toFixed(2)}`, 15, 70);
-            doc.text(`IVA: €${iva.toFixed(2)}`, 15, 78);
-            doc.text(`Totale: €${total.toFixed(2)}`, 15, 90);
-
-            doc.save(`scontrino_${orderId}.pdf`);
-            alert("Acquisto effettuato!");
-        }
-
-        // === START ===
-        (async () => {
-            const items = await loadAll();
-            renderCatalog(items);
-        })();
     </script>
 
 </body>
