@@ -1,129 +1,16 @@
 <!DOCTYPE html>
-
+<html lang="it">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>E-commerce 5DINF</title>
+    <meta charset="UTF-8">
+    <title>Catalogo Prodotti</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f2f5ff;
-        margin: 0;
-        padding: 20px;
-    }
-
-    header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    h1 {
-        font-size: 2rem;
-        color: #222;
-    }
-
-    /* L’area dove verranno stampati i prodotti */
-    #t1 {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 20px;
-        padding: 10px;
-    }
-
-    /* CARD DEL PRODOTTO */
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 18px;
-        box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.12);
-        transition: 0.25s;
-        border: 1px solid #e6e6e6;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-    }
-
-    .card h3 {
-        margin: 0 0 12px 0;
-        color: #004aad;
-        font-size: 1.25rem;
-    }
-
-    .card p {
-        margin: 6px 0;
-        font-size: 0.95rem;
-        color: #333;
-    }
-
-    .price {
-        font-weight: bold;
-        color: #0077ff;
-        font-size: 1.1rem;
-    }
-
-    /* BOTTONE */
-    .btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 8px 14px;
-        background: #0077ff;
-        color: white;
-        border-radius: 10px;
-        text-decoration: none;
-        transition: 0.2s;
-    }
-
-    .btn:hover {
-        background: #005ad1;
-    }
-</style>
-
 <body>
-    <header>
-        <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF 😎🔥</h1>
-    </header>
 
-    <div id="t1"></div>
+    <h1>Catalogo Prodotti</h1>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <div class="cards-container" id="catalogo"></div>
 
-    <script>
-
-        function caricaJSON() {
-            let richiesta = new XMLHttpRequest();
-
-            richiesta.open('GET', 'informatica.json', true);
-            richiesta.send();
-
-            richiesta.onload = function () {
-
-                const oggetto = JSON.parse(richiesta.responseText);
-
-                let str = "<table border='1'>";
-
-                for (let i = 0; i < oggetto.length; i++) {
-                    str +=
-                        "<tr>" +
-                        "<td>" + oggetto[i].nome + "</td>" +
-                        "<td>" + oggetto[i].costo + "</td>" +
-                        "<td>" + oggetto[i].descrizione + "</td>" +
-                        "</tr>";
-                }
-
-                str += "</table>";
-
-                document.getElementById("t1").innerHTML = str;
-            };
-        }
-
-        // Chiamata
-        caricaJSON();
-
-    </script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
