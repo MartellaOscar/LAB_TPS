@@ -4,7 +4,7 @@ body {
     margin: 2rem auto;
     padding: 0;
     font-family: 'Inter';
-    background-color: rgb(81, 255, 0);
+    background: linear-gradient(135deg, #0A2010, #256D5A, #9EDFC7);
     color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
