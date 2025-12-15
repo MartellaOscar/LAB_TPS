@@ -1,6 +1,6 @@
-Pallone da Calcio Kipsta;€14.99;Pallone da calcio in materiale sintetico, ideale per allenamenti e partite ricreative. Dotato di buona aderenza e durabilità.
-Racchetta da Tennis Artengo;€49.99;Racchetta in alluminio leggero con grip confortevole. Perfetta per principianti e giocatori intermedi.
-Zaino da Trekking Quechua 30L;€39.99;Zaino ergonomico con spallacci imbottiti, ideale per escursioni di un giorno. Resistente all'acqua e con tasche organizzate.
-Scarpe Running Kalenji;€59.99;Scarpe da corsa leggere con ammortizzazione EVA. Suola aderente per un'ottima trazione su asfalto.
-Yoga Mat Domyos 173cm;€19.99;Tappetino antiscivolo per yoga e pilates. Spessore 5mm con superficie morbida e comoda.
-Borraccia Termica Quechua 500ml;€24.99;Bottiglia isolante che mantiene bevande calde/fredde fino a 12 ore. In acciaio inox con tappo ermetico.
+Pallone da Calcio Kipsta;14.99;Pallone da calcio in materiale sintetico, ideale per allenamenti e partite ricreative. Dotato di buona aderenza e durabilità.
+Racchetta da Tennis Artengo;49.99;Racchetta in alluminio leggero con grip confortevole. Perfetta per principianti e giocatori intermedi.
+Zaino da Trekking Quechua 30L;39.99;Zaino ergonomico con spallacci imbottiti, ideale per escursioni di un giorno. Resistente all'acqua e con tasche organizzate.
+Scarpe Running Kalenji;59.99;Scarpe da corsa leggere con ammortizzazione EVA. Suola aderente per un'ottima trazione su asfalto.
+Yoga Mat Domyos 173cm;19.99;Tappetino antiscivolo per yoga e pilates. Spessore 5mm con superficie morbida e comoda.
+Borraccia Termica Quechua 500ml;24.99;Bottiglia isolante che mantiene bevande calde/fredde fino a 12 ore. In acciaio inox con tappo ermetico.
