@@ -35,7 +35,7 @@
                         `<div class="card">
                             <h3>${oggetto[i].nome}</h3>
                             <p><b>PREZZO:</b>:${oggetto[i].costo}</p>
-                            <p><b>DESCRIZIONE</b>: EUR ${oggetto[i].descrizione}</p>
+                            <p><b>DESCRIZIONE</b>: ${oggetto[i].descrizione}</p>
                         </div>`;
                 }
 
@@ -44,8 +44,95 @@
             };
         }
 
-        // Chiamata
+
+        function caricaXML() {
+            let richiesta = new XMLHttpRequest();
+            richiesta.open("GET", "casa.xml", true);
+            richiesta.send();
+
+            richiesta.onload = function () {
+                let xml = richiesta.responseXML;
+                let prodotti = xml.getElementsByTagName("prodotto");
+
+                let str = "";
+
+                for (let i = 0; i < prodotti.length; i++) {
+                    let nome = prodotti[i].getElementsByTagName("nome")[0].textContent;
+                    let costo = prodotti[i].getElementsByTagName("costo")[0].textContent;
+                    let descrizione = prodotti[i].getElementsByTagName("descrizione")[0].textContent;
+
+                    str += `
+                <div class="card">
+                <h3>${nome}</h3>
+                <p><b>PREZZO:</b> €${costo}</p>
+                <p><b>DESCRIZIONE:</b> ${descrizione}</p>
+                </div>`;
+                }
+
+                document.getElementById("t1").innerHTML = str;
+            };
+        }
+        function caricaCSV() {
+            let richiesta = new XMLHttpRequest();
+            richiesta.open("GET", "giardino.csv", true);
+            richiesta.send();
+
+            richiesta.onload = function () {
+                let righe = richiesta.responseText.split("\n");
+                let str = "";
+
+                for (let i = 1; i < righe.length; i++) {
+                    let campi = righe[i].split(",");
+
+                    if (campi.length >= 3) {
+                        str += `
+                    <div class="card">
+                    <h3>${campi[0]}</h3>
+                    <p><b>PREZZO:</b> €${campi[1]}</p>
+                    <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
+                    </div>`;
+                    }
+                }
+
+                document.getElementById("t1").innerHTML = str;
+            };
+        }
+
+        function caricaTXT() {
+            let richiesta = new XMLHttpRequest();
+            richiesta.open("GET", "sport.txt", true);
+            richiesta.send();
+
+            richiesta.onload = function () {
+                let righe = richiesta.responseText.split("\n");
+                let str = "";
+
+                for (let i = 0; i < righe.length; i++) {
+                    let campi = righe[i].split(";");
+
+                    if (campi.length >= 3) {
+                        str += `
+                    <div class="card">
+                    <h3>${campi[0]}</h3>
+                    <p><b>PREZZO:</b> €${campi[1]}</p>
+                    <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
+                    </div>`;
+                    }
+                }
+
+                document.getElementById("t1").innerHTML = str;
+            };
+        }
+
+
+
+
+
+
         caricaJSON();
+        caricaXML();
+        caricaCSV();
+        caricaTXT();
 
     </script>
 
