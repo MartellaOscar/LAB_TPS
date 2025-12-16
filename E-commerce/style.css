@@ -1,140 +1,173 @@
-body {
-    max-width: 50rem;
-    margin: 2rem auto;
+/* ==============================
+   RESET & BASE
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    font-family: 'Inter';
-    background: linear-gradient(135deg, #0A2010, #256D5A, #9EDFC7);
-    color: white;
+}
+
+body {
+    max-width: 65rem;
+    margin: 2rem auto;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f3d2e, #1b7a62, #a7e6ce);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: cover;
+    color: white;
 }
 
-select {
-    width: fit-content;
-    padding: 0.5rem;
-    border: 2px solid black;
-    color: black;
-    text-decoration: none;
-    align-self: center;
-    border-radius: 1.5rem;
-    padding: 8px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    width: 250px;
-}
-select:hover{
-    background: rgba(0, 0, 0, 0.5);
+/* ==============================
+   HEADER
+================================ */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
 }
 
-#listaElementi li {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ccc;
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
-#img{
-    width: 200px;
-    height: 200px;
-}
-
+/* ==============================
+   GRID LAYOUT
+================================ */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
+/* ==============================
+   CARD PRODOTTI
+================================ */
 .card {
     display: flex;
-    gap: 1.5rem;
     flex-direction: column;
-    padding: 1.5rem 1rem;
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.3);
-    color: black;
+    gap: 0.8rem;
+    padding: 1.4rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.85);
+    color: #1f2937;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card h3, .card p, .card a {
-    margin: 0;
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.card p b {
+    color: #047857;
+}
+
+/* ==============================
+   CARD SECONDARIA (se usata)
+================================ */
 .card1 {
     display: flex;
-    gap: 1.5rem;
     flex-direction: column;
-    padding: 1.5rem 1rem;
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.3);
-    color: black;
+    gap: 0.8rem;
+    padding: 1.4rem;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.75);
+    color: #1f2937;
     width: 14rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card1 h3, .card1 p, .card1 a {
-    margin: 0;
-}
-
+/* ==============================
+   BUTTON
+================================ */
 .button {
     width: fit-content;
-    padding: 0.5rem;
-    border: 2px solid black;
-    color: black;
-    text-decoration: none;
-    align-self: center;
-    border-radius: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: 2px solid #0f172a;
+    background: transparent;
+    color: #0f172a;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
+
 .button:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.15);
+    color: black;
 }
 
-ul{
-    list-style : none;
-    padding : 0;
-    margin : 15px 0;
-    border : 1px solid #e2e8f0;
+/* ==============================
+   LISTE
+================================ */
+ul {
+    list-style: none;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding : 10px;
 }
 
-li{
-    padding : 6px 0;
-    border-bottom : 1px solid #e2e8f0;
+li {
+    padding: 6px 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-@media screen and (max-width: 825px) {
-    body {
-        margin: 2rem 1.5rem;
-    }
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
+/* ==============================
+   SELECT
+================================ */
+select {
+    width: 250px;
+    padding: 0.6rem;
+    border-radius: 999px;
+    border: 2px solid black;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 575px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
+select:hover {
+    background: rgba(0, 0, 0, 0.15);
 }
 
-/*-----------------------------------
-    sidebar con carrello acquisti
--------------------------------------*/
-*{
-    box-sizing: border-box;
-}
-
+/* ==============================
+   SIDEBAR CARRELLO
+================================ */
 .sidebar {
     position: fixed;
     top: 24px;
-    right: 24px;  /* Cambiato da left a right */
+    right: 24px;
     bottom: 44px;
+    width: 88px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 88px;  /* Inizia chiusa */
-    border-radius: 16px;
     padding: 0 16px;
-    background: rgb(000/19%);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(30px);
-    transition: width 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transition: width 0.4s ease;
+}
+
+.sidebar:not(.collapsed) {
+    width: 260px;
 }
 
 .sidebar header {
@@ -142,99 +175,56 @@ li{
     align-items: center;
     height: 72px;
     padding-top: 10px;
-    border-bottom:
-        1px solid 
-        rgb(255 255 255 / 8%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar header img {
     height: 44px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.sidebar header img:hover {
+    transform: scale(1.05);
 }
 
 .sidebar button {
-    position: relative;
     display: flex;
-    gap: 12px;
     align-items: center;
+    gap: 12px;
     height: 50px;
-    width: 100%;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 16px;
     padding: 0 16px;
+    border-radius: 10px;
     background: transparent;
-    border: 0;
+    border: none;
+    color: rgba(255, 255, 255, 0.95);
     cursor: pointer;
-    color: rgb(255 255 255/95%);
+    font-size: 16px;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.sidebar button p:nth-child(2) {
-        flex: 11 auto;
+.sidebar button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
 }
 
 .sidebar button.active {
-    background:rgb(000/15%);
-}
-
-sidebar button i {
-    transition: 0.3s;
-}
-.sidebar button.active i:nth-child(3) {
-    rotate: -180deg;
-}
-
-.sidebar button:not(.active):hover {
-    background: rgb(000/5%);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .sidebar ul {
-    display: grid;
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
 }
 
 .sub-menu {
-    position: relative;
     overflow: hidden;
     height: 0;
-    transition: 0.5s;
-
+    transition: height 0.4s ease;
 }
 
-.sub-menu ul {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: grid;
-}
-
-sub-menu button {
-    padding-left: 48px;
-}
-
-.sub-menu button::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 22.5px;
-    translate: 0 -50%;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background:
-        rgb(255 255 255 / 35%);
-}
-
-.sidebar i {
-    font-size: 20px;
-    width: 20px;
-    max-width: 20px;
-    min-width: 20px;
-}
-
-/* Aggiungi questa regola alla fine del tuo CSS */
+/* Sidebar chiusa */
 .sidebar.collapsed {
     width: 88px;
     height: 88px;
@@ -247,60 +237,17 @@ sub-menu button {
     pointer-events: none;
 }
 
-.sidebar.collapsed button i:nth-child(3) {
-    opacity: 0;
-    visibility: hidden;
+/* ==============================
+   RESPONSIVE
+================================ */
+@media screen and (max-width: 825px) {
+    body {
+        margin: 2rem 1.5rem;
+    }
 }
 
-.sidebar button p {
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
-.sidebar header img {
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.sidebar header img:hover {
-    transform: scale(1.05);
-}
-
-/* Sidebar aperta */
-.sidebar:not(.collapsed) {
-    width: 260px;
-}
-
-/* Sidebar chiusa - nascondi testi e submenu */
-.sidebar.collapsed button p,
-.sidebar.collapsed .sub-menu {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.sidebar.collapsed button i:nth-child(3) {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Transizioni per i testi */
-.sidebar button p {
-    transition: opacity 0.3s, visibility 0.3s;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-/* Immagine cliccabile */
-.sidebar header img {
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.sidebar header img:hover {
-    transform: scale(1.05);
-}
-
-/* Centra l'immagine quando la sidebar è chiusa */
-.sidebar.collapsed header {
-    justify-content: center;
+@media screen and (max-width: 575px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
 }
