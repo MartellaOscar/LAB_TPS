@@ -20,9 +20,9 @@ body {
     /* gradiente verde scuro -> chiaro */
     background: linear-gradient(
         135deg,
+        #eef6f1,
         #0f3d2e,
-        #3b7a5f,
-        #eef6f1
+        #3b7a5f
     );
     background-attachment: fixed;
 }
