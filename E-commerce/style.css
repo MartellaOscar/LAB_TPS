@@ -17,12 +17,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #1f2933;
 
-    /* gradiente verde scuro -> chiaro */
     background: linear-gradient(
         135deg,
         #eef6f1,
-        #0f3d2e,
-        #3b7a5f
+        #3b7a5f,
+        #0f3d2e
     );
     background-attachment: fixed;
 }
@@ -56,13 +55,16 @@ header h1 {
 ================================ */
 .card {
     background: #ffffff;
-    border-radius: 12px;          /* bordi più arrotondati */
+    border-radius: 12px;
     padding: 1.2rem;
     border: 1px solid #d1d5db;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
 }
 
-/* titolo prodotto */
+/* titolo */
 .card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.6rem;
@@ -79,6 +81,25 @@ header h1 {
 /* prezzo */
 .card p b {
     color: #14532d;
+}
+
+/* ==============================
+   BOTTONE COMPRA
+================================ */
+.btn-compra {
+    margin-top: auto;
+    align-self: center;
+    padding: 0.5rem 1.6rem;
+    border-radius: 20px;
+    border: 1px solid #0f3d2e;
+    background: #ffffff;
+    color: #0f3d2e;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.btn-compra:hover {
+    background: #e6f2ec;
 }
 
 /* ==============================

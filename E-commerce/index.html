@@ -1,54 +1,59 @@
 <!DOCTYPE html>
+<html lang="it">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>E-commerce 5DINF</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Libreria per PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
+
     <header>
         <h1>L'E-COMMERCE MIGLIORE DELLA 5DINF 😎🔥</h1>
     </header>
 
     <section id="t1" class="grid"></section>
-
     <section id="t2" class="grid"></section>
-
     <section id="t3" class="grid"></section>
-
     <section id="t4" class="grid"></section>
 
     <script>
-
+        /* ==============================
+           JSON
+        ================================ */
         function caricaJSON() {
             let richiesta = new XMLHttpRequest();
-
             richiesta.open('GET', 'informatica.json', true);
             richiesta.send();
 
             richiesta.onload = function () {
-
-                const oggetto = JSON.parse(richiesta.responseText);
-
+                const dati = JSON.parse(richiesta.responseText);
                 let str = "";
 
-                for (let i = 0; i < oggetto.length; i++) {
-                    str +=
-                        `<div class="card">
-                            <h3>${oggetto[i].nome}</h3>
-                            <p><b>PREZZO:</b> €${oggetto[i].costo}</p>
-                            <p><b>DESCRIZIONE</b>: ${oggetto[i].descrizione}</p>
-                        </div>`;
+                for (let i = 0; i < dati.length; i++) {
+                    str += `
+                    <div class="card">
+                        <h3>${dati[i].nome}</h3>
+                        <p><b>PREZZO:</b> €${dati[i].costo}</p>
+                        <p><b>DESCRIZIONE:</b> ${dati[i].descrizione}</p>
+                        <button class="btn-compra"
+                            onclick="compraProdotto('${dati[i].nome}', '${dati[i].costo}')">
+                            Compra
+                        </button>
+                    </div>`;
                 }
-
-
                 document.getElementById("t1").innerHTML = str;
             };
         }
 
-
+        /* ==============================
+           XML
+        ================================ */
         function caricaXML() {
             let richiesta = new XMLHttpRequest();
             richiesta.open("GET", "casa.xml", true);
@@ -57,7 +62,6 @@
             richiesta.onload = function () {
                 let xml = richiesta.responseXML;
                 let prodotti = xml.getElementsByTagName("prodotto");
-
                 let str = "";
 
                 for (let i = 0; i < prodotti.length; i++) {
@@ -66,18 +70,23 @@
                     let descrizione = prodotti[i].getElementsByTagName("descrizione")[0].textContent;
 
                     str += `
-                <div class="card">
-                <h3>${nome}</h3>
-                <p><b>PREZZO:</b> €${costo}</p>
-                <p><b>DESCRIZIONE:</b> ${descrizione}</p>
-                </div>`;
+                    <div class="card">
+                        <h3>${nome}</h3>
+                        <p><b>PREZZO:</b> €${costo}</p>
+                        <p><b>DESCRIZIONE:</b> ${descrizione}</p>
+                        <button class="btn-compra"
+                            onclick="compraProdotto('${nome}', '${costo}')">
+                            Compra
+                        </button>
+                    </div>`;
                 }
-
                 document.getElementById("t2").innerHTML = str;
             };
         }
 
-
+        /* ==============================
+           CSV
+        ================================ */
         function caricaCSV() {
             let richiesta = new XMLHttpRequest();
             richiesta.open("GET", "giardino.csv", true);
@@ -89,21 +98,26 @@
 
                 for (let i = 1; i < righe.length; i++) {
                     let campi = righe[i].split(",");
-
                     if (campi.length >= 3) {
                         str += `
-                    <div class="card">
-                    <h3>${campi[0]}</h3>
-                    <p><b>PREZZO:</b> €${campi[1]}</p>
-                    <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
-                    </div>`;
+                        <div class="card">
+                            <h3>${campi[0]}</h3>
+                            <p><b>PREZZO:</b> €${campi[1]}</p>
+                            <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
+                            <button class="btn-compra"
+                                onclick="compraProdotto('${campi[0]}', '${campi[1]}')">
+                                Compra
+                            </button>
+                        </div>`;
                     }
                 }
-
                 document.getElementById("t3").innerHTML = str;
             };
         }
 
+        /* ==============================
+           TXT
+        ================================ */
         function caricaTXT() {
             let richiesta = new XMLHttpRequest();
             richiesta.open("GET", "sport.txt", true);
@@ -115,26 +129,48 @@
 
                 for (let i = 0; i < righe.length; i++) {
                     let campi = righe[i].split(";");
-
                     if (campi.length >= 3) {
                         str += `
-                    <div class="card">
-                    <h3>${campi[0]}</h3>
-                    <p><b>PREZZO:</b> €${campi[1]}</p>
-                    <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
-                    </div>`;
+                        <div class="card">
+                            <h3>${campi[0]}</h3>
+                            <p><b>PREZZO:</b> €${campi[1]}</p>
+                            <p><b>DESCRIZIONE:</b> ${campi[2]}</p>
+                            <button class="btn-compra"
+                                onclick="compraProdotto('${campi[0]}', '${campi[1]}')">
+                                Compra
+                            </button>
+                        </div>`;
                     }
                 }
-
                 document.getElementById("t4").innerHTML = str;
             };
         }
 
+        /* ==============================
+           ACQUISTO + PDF
+        ================================ */
+        function compraProdotto(nome, prezzo) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text("Scontrino di acquisto", 20, 20);
+
+            doc.setFontSize(12);
+            doc.text("Prodotto: " + nome, 20, 40);
+            doc.text("Prezzo: € " + prezzo, 20, 50);
+            doc.text("Data: " + new Date().toLocaleDateString(), 20, 60);
+
+            doc.text("Grazie per il tuo acquisto!", 20, 80);
+
+            doc.save("scontrino.pdf");
+        }
+
+        /* AVVIO */
         caricaJSON();
         caricaXML();
         caricaCSV();
         caricaTXT();
-
     </script>
 
 </body>
