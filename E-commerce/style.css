@@ -56,20 +56,6 @@ header h1 {
     color: #000;
 }
 
-.btn-vendi {
-    margin-top: 1rem;
-    align-self: center;      /* centra il bottone */
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;     /* angoli tondi */
-    border: 1px solid #333;
-    background: #ffffff;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.btn-vendi:hover {
-    background: #eaeaea;
-}
 
 
 @media screen and (max-width: 600px) {
